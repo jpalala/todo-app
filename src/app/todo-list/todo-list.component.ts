@@ -13,17 +13,14 @@ export class TodoListComponent implements OnInit {
  // todomockService: <Object>;
 
   constructor(private todomockService: TodomockService) {
-    this.todomockService = todomockService;
-
   }
 
   ngOnInit() {
-    this.todomockService.initTodos();
-
-    console.log(this.todos);
+    let todos = this.getTodos();
+    this.todos = todos;
    }
 
    getTodos() {
-     this.todomockService.getTodos();
+     return this.todomockService.getTodos();
    }
 }
