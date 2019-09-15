@@ -5,23 +5,35 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderModule } from './header/header.module';
 import { AppRoutingModule } from './app-routing.module';
-mport { TodoComponent } from './todo/todo.component';
+import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { HeaderComponent } from './header/header.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+// import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     TodoListComponent,
-    HeaderComponent
+    MainNavComponent
   ],
   imports: [
     HeaderModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

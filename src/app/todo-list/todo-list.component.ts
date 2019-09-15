@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+// import { HttpClient } from '@angular/common/http';
 import { Todo } from '../model/todo';
 import { TodomockService } from '../services/todomock.service';
 
@@ -9,13 +9,21 @@ import { TodomockService } from '../services/todomock.service';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-  todos: Array<object>;
+  todos: Array<Todo>;
+ // todomockService: <Object>;
 
   constructor(private todomockService: TodomockService) {
     this.todomockService = todomockService;
+
   }
 
   ngOnInit() {
-    this.todos = this.todomockService.getTodos();
-  }
+    this.todomockService.initTodos();
+
+    console.log(this.todos);
+   }
+
+   getTodos() {
+     this.todomockService.getTodos();
+   }
 }

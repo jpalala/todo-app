@@ -13,15 +13,15 @@ export class TodomockService {
     this.initTodos();
   }
 
-  // TODO: Convert to Observables
-  getTodos(): Array<Todo> {
-    if ( this.todos.length === 0 ) {
-      this.initTodos();
+  initTodos() {
+    if ( !this.todos ) {
+      this.getTodos();
     }
-    return this.todos;
   }
 
-  initTodos() {
+  // TODO: Convert to Observables
+  getTodos(): Array<Todo> {
+    this.todos = [];
     this.http.get('https://jsonplaceholder.typicode.com/todos')
       .subscribe((data: any) => {
         let i = 1;
@@ -29,6 +29,7 @@ export class TodomockService {
           this.todos.push(new Todo( i++, todo.title, todo.completed ));
         });
     });
+    return this.todos;
   }
-}
 
+}

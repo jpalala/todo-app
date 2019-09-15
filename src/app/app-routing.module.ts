@@ -3,8 +3,7 @@ import { RouterModule } from '@angular/router';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
 const routes = [
-  { path: '', component: WeatherComponent },
-  { path: 'todos', component: TodoListComponent },
+  { path: '', component: TodoListComponent },
 ];
 
 @NgModule({
