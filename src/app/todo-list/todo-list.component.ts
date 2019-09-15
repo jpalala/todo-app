@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Todo } from '../model/todo';
+import { TodomockService } from '../services/todomock.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,20 +11,11 @@ import { Todo } from '../model/todo';
 export class TodoListComponent implements OnInit {
   todos: Array<object>;
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit() {
-    this.initTodos();
+  constructor(private todomockService: TodomockService) {
+    this.todomockService = todomockService;
   }
 
-  initTodos() {
-    this.todos = [];
-    this.http.get('https://jsonplaceholder.typicode.com/todos')
-    .subscribe((data: any) => {
-      let i = 1;
-      data.forEach( (todo: {id: number, title: string; completed: boolean; }) => {
-        this.todos.push(new Todo( i++, todo.title, todo.completed ));
-      });
-    });
+  ngOnInit() {
+    this.todos = this.todomockService.getTodos();
   }
 }
