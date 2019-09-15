@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     const user = new User('test');
     localStorage.setItem('username', user.name);
+    alert(user.name);
   }
 
   saveLogin() {

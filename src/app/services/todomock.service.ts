@@ -25,16 +25,8 @@ export class TodomockService {
     let headers: HttpHeaders = new HttpHeaders();
     headers = headers.append('Accept', 'application/json');
 
-    return this.http.get('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5', {headers})
-      .pipe(
-        map((data: any) => {
-          // this.todos.push(new Todo( data.id, data.title, data.completed ));
-          return data;
-        }), catchError( () => {
-          return throwError( 'No not found!' );
-        })
-      // tslint:disable-next-line: semicolon
-      )
+    return this.http.get<Array<Todo>>('https://jsonplaceholder.typicode.com/todos?_start=0&_limit=5', {headers});
+
   }
 
 }
