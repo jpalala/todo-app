@@ -10,3 +10,8 @@ export class TodoComponent {
   @Input()
   todo: Todo;
 }
+// saveTodo () {
+//   // todo
+//   localStorage('todos', JSON.stringify());
+// }
+//}
